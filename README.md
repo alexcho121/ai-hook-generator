@@ -55,8 +55,6 @@ I worked on:
 - Updating scores based on copy and regenerate actions
 - Connecting the frontend API layer to the backend in this portfolio copy
 
-I did not build the whole app by myself. The UI, product idea, database work, and general project work were shared across the team.
-
 ## Request Flow
 
 ```text
@@ -300,7 +298,6 @@ To change this, create `front/.env` locally:
 VITE_API_BASE_URL=http://localhost:8080
 ```
 
-Do not commit local `.env` files.
 
 ## Environment Variables
 
