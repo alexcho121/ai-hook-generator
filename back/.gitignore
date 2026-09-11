@@ -1,0 +1,18 @@
+# Local runtime config
+src/main/resources/application-local.properties
+src/main/resources/application-*.local.properties
+
+# Gradle / build output
+.gradle/
+build/
+
+# Runtime H2 database files
+data/
+*.mv.db
+*.trace.db
+*.lock.db
+
+# OS / IDE
+.DS_Store
+.idea/
+*.iml

@@ -1,0 +1,240 @@
+.footerSlide_section {
+  width: 100%;
+  min-height: 123vh;
+  padding: 26vh 24px 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(255, 214, 186, 0.42) 0%,
+      rgba(255, 214, 186, 0) 42%
+    ),
+    radial-gradient(
+      circle at 82% 70%,
+      rgba(220, 201, 245, 0.28) 0%,
+      rgba(220, 201, 245, 0) 46%
+    ),
+    linear-gradient(
+      180deg,
+      #f7f7f4 0%,
+      #fff6ec 44%,
+      #f1ded2 100%
+    );
+}
+
+.footerSlide_wrapper {
+  width: 100%;
+  max-width: 1040px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.footerSlide_content {
+  width: 100%;
+  min-height: 520px;
+
+  padding: 42px;
+
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  border-radius: 42px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(30px) saturate(1.45);
+  -webkit-backdrop-filter: blur(30px) saturate(1.45);
+
+  box-shadow:
+    0 24px 70px rgba(108, 75, 55, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.72),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.footerSlide_content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 16% 16%,
+      rgba(255, 255, 255, 0.54) 0%,
+      rgba(255, 255, 255, 0.16) 24%,
+      rgba(255, 255, 255, 0) 52%
+    ),
+    radial-gradient(
+      circle at 84% 82%,
+      rgba(255, 198, 220, 0.2) 0%,
+      rgba(255, 198, 220, 0.08) 28%,
+      rgba(255, 198, 220, 0) 58%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.24) 0%,
+      rgba(255, 255, 255, 0.03) 48%,
+      rgba(255, 255, 255, 0.16) 100%
+    );
+
+  pointer-events: none;
+}
+
+.footerSlide_brandBox,
+.footerSlide_bottomArea {
+  position: relative;
+  z-index: 1;
+}
+
+.footerSlide_title {
+  max-width: 720px;
+  margin: 0;
+
+  font-size: clamp(36px, 6.2vw, 78px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.075em;
+
+  color: #4f3527;
+}
+
+.footerSlide_bottomArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 28px;
+}
+
+.footerSlide_linkBox {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footerSlide_link {
+  color: rgba(79, 53, 39, 0.72);
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition:
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.footerSlide_link:hover {
+  color: #4f3527;
+  transform: translateY(-1px);
+}
+
+.footerSlide_copyright {
+  margin: 0;
+
+  font-size: 14px;
+  color: rgba(79, 53, 39, 0.48);
+
+  white-space: nowrap;
+}
+
+.footerSlide_notice {
+  max-width: 360px;
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.58;
+  word-break: keep-all;
+
+  color: rgba(79, 53, 39, 0.54);
+
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .footerSlide_section {
+    min-height: 128vh;
+    padding: 22vh 24px 44px;
+  }
+
+  .footerSlide_content {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 760px) {
+  .footerSlide_section {
+    min-height: 120vh;
+    padding: 18vh 18px 40px;
+  }
+
+  .footerSlide_wrapper {
+    gap: 16px;
+  }
+
+  .footerSlide_content {
+    min-height: 520px;
+    padding: 30px;
+    border-radius: 34px;
+  }
+
+  .footerSlide_title {
+    font-size: clamp(30px, 8vw, 48px);
+  }
+
+  .footerSlide_bottomArea {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footerSlide_linkBox {
+    gap: 16px;
+  }
+
+  .footerSlide_notice {
+    max-width: 100%;
+  }
+
+  .footerSlide_copyright {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerSlide_section {
+    min-height: 100vh;
+    padding: 16vh 16px 34px;
+  }
+
+  .footerSlide_content {
+    min-height: 480px;
+    padding: 26px;
+    border-radius: 30px;
+  }
+
+  .footerSlide_brandName {
+    margin-bottom: 20px;
+  }
+
+  .footerSlide_linkBox {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  .footerSlide_notice {
+    font-size: 13px;
+  }
+}

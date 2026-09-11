@@ -1,0 +1,593 @@
+.autoResizeTextarea_container {
+  width: min(720px, 92vw);
+  min-height: 58px;
+  padding: 8px 56px 8px 18px;
+
+  border: 1px solid rgba(108, 75, 55, 0.12);
+  border-radius: 30px;
+
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+
+  box-shadow: 0 18px 48px rgba(108, 75, 55, 0.12);
+
+  transition:
+    width 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+    min-height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.autoResizeTextarea_containerExpanded {
+  min-height: 132px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-radius: 32px;
+
+  background-color: rgba(255, 255, 255, 0.84);
+
+  box-shadow: 0 22px 56px rgba(108, 75, 55, 0.16);
+}
+
+.autoResizeTextarea_containerResultMode {
+  width: 100%;
+  min-height: 190px;
+  padding: 18px 58px 18px 20px;
+}
+
+.autoResizeTextarea_inputArea {
+  width: 100%;
+  padding-right: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.autoResizeTextarea_containerExpanded .autoResizeTextarea_inputArea,
+.autoResizeTextarea_containerResultMode .autoResizeTextarea_inputArea {
+  padding-bottom: 48px;
+}
+
+.autoResizeTextarea_input {
+  width: 100%;
+  min-height: 28px;
+  max-height: 260px;
+
+  border: none;
+  outline: none;
+  resize: none;
+
+  background-color: transparent;
+  color: #4f3527;
+
+  font-size: 16px;
+  line-height: 1.5;
+
+  padding: 6px 0;
+
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.autoResizeTextarea_input::placeholder {
+  color: rgba(79, 53, 39, 0.42);
+}
+
+.autoResizeTextarea_input::-webkit-scrollbar {
+  width: 6px;
+}
+
+.autoResizeTextarea_input::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.autoResizeTextarea_input::-webkit-scrollbar-thumb {
+  background-color: rgba(108, 75, 55, 0.24);
+  border-radius: 999px;
+}
+
+.autoResizeTextarea_platformRow {
+  position: absolute;
+  left: 18px;
+  right: 58px;
+  bottom: 12px;
+  z-index: 3;
+
+  width: auto;
+
+  max-height: none;
+  margin-top: 0;
+  overflow: visible;
+
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.autoResizeTextarea_platformRowVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.autoResizeTextarea_platformList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.autoResizeTextarea_platformButton {
+  height: 34px;
+  padding: 0 12px 0 9px;
+
+  border: 1px solid rgba(108, 75, 55, 0.14);
+  border-radius: 999px;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgba(79, 53, 39, 0.72);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+
+  position: relative;
+  z-index: 4;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.autoResizeTextarea_platformButton:not(:disabled):hover {
+  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.76);
+}
+
+.autoResizeTextarea_platformButton:disabled {
+  pointer-events: none;
+  opacity: 0.56;
+}
+
+.autoResizeTextarea_platformButtonSelected {
+  background-color: rgba(108, 75, 55, 0.1);
+  border-color: rgba(108, 75, 55, 0.32);
+  color: #4f3527;
+}
+
+.autoResizeTextarea_platformCircle {
+  width: 13px;
+  height: 13px;
+
+  border: 1.5px solid rgba(108, 75, 55, 0.38);
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.72);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.autoResizeTextarea_platformButtonSelected .autoResizeTextarea_platformCircle {
+  background-color: #6c4b37;
+  border-color: #6c4b37;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.85);
+}
+
+.autoResizeTextarea_platformLabel {
+  white-space: nowrap;
+}
+
+.autoResizeTextarea_submitButton {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 5;
+
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #6c4b37;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  font-size: 20px;
+  line-height: 1;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.autoResizeTextarea_submitButton:not(:disabled):hover {
+  opacity: 0.85;
+  transform: scale(1.04);
+}
+
+.autoResizeTextarea_submitButton:disabled {
+  opacity: 0.42;
+  pointer-events: none;
+  transform: none;
+}
+
+.autoResizeTextarea_submitIcon {
+  width: 22px;
+  height: 22px;
+
+  display: block;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.autoResizeTextarea_containerResultMode .autoResizeTextarea_platformList {
+  gap: 6px;
+}
+
+.autoResizeTextarea_containerResultMode .autoResizeTextarea_platformButton,
+.autoResizeTextarea_containerMobileMode .autoResizeTextarea_platformButton {
+  height: 30px;
+  padding: 0 10px 0 8px;
+  gap: 6px;
+
+  font-size: 12px;
+  border-radius: 999px;
+}
+
+.autoResizeTextarea_containerResultMode .autoResizeTextarea_platformCircle,
+.autoResizeTextarea_containerMobileMode .autoResizeTextarea_platformCircle {
+  width: 11px;
+  height: 11px;
+  border-width: 1.3px;
+}
+
+.autoResizeTextarea_containerResultMode
+  .autoResizeTextarea_platformButtonSelected
+  .autoResizeTextarea_platformCircle,
+.autoResizeTextarea_containerMobileMode
+  .autoResizeTextarea_platformButtonSelected
+  .autoResizeTextarea_platformCircle {
+  box-shadow: inset 0 0 0 2.5px rgba(255, 255, 255, 0.85);
+}
+
+.autoResizeTextarea_loadingOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+
+  border-radius: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.2);
+
+  backdrop-filter: blur(16px) saturate(1.45);
+  -webkit-backdrop-filter: blur(16px) saturate(1.45);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.72),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.22);
+
+  pointer-events: auto;
+
+  animation: autoResizeTextarea_loadingOverlayAppear 0.18s ease forwards;
+}
+
+.autoResizeTextarea_loadingText {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+
+  color: rgba(79, 53, 39, 0.72);
+}
+
+@keyframes autoResizeTextarea_loadingOverlayAppear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 960px) {
+  .autoResizeTextarea_container {
+    width: min(680px, 92vw);
+  }
+
+  .autoResizeTextarea_containerResultMode {
+    min-height: 180px;
+    padding: 18px 56px 18px 20px;
+  }
+
+  .autoResizeTextarea_input {
+    font-size: 15.5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .autoResizeTextarea_container {
+    width: min(560px, 92vw);
+    min-height: 56px;
+    padding: 8px 52px 8px 16px;
+    border-radius: 28px;
+
+    background-color: rgba(255, 255, 255, 0.82);
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    box-shadow: 0 8px 20px rgba(108, 75, 55, 0.08);
+
+    transition:
+      background-color 0.14s ease,
+      box-shadow 0.14s ease;
+  }
+
+  .autoResizeTextarea_containerExpanded {
+    height: 146px;
+    min-height: 146px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    border-radius: 30px;
+
+    background-color: rgba(255, 255, 255, 0.88);
+
+    box-shadow: 0 10px 24px rgba(108, 75, 55, 0.1);
+  }
+
+  .autoResizeTextarea_containerResultMode {
+    width: 100%;
+    height: 174px;
+    min-height: 174px;
+    padding: 16px 54px 16px 18px;
+  }
+
+  .autoResizeTextarea_containerExpanded .autoResizeTextarea_inputArea,
+  .autoResizeTextarea_containerResultMode .autoResizeTextarea_inputArea {
+    padding-bottom: 44px;
+  }
+
+  .autoResizeTextarea_input {
+    min-height: 26px;
+    max-height: 210px;
+
+    font-size: 15px;
+    line-height: 1.5;
+
+    padding: 5px 0;
+
+    transition: none;
+  }
+
+  .autoResizeTextarea_platformRow {
+    left: 16px;
+    right: 54px;
+    bottom: 11px;
+
+    transition:
+      opacity 0.16s ease,
+      transform 0.16s ease;
+  }
+
+  .autoResizeTextarea_platformList {
+    gap: 6px;
+  }
+
+  .autoResizeTextarea_platformButton {
+    transition:
+      background-color 0.14s ease,
+      border-color 0.14s ease,
+      color 0.14s ease;
+  }
+
+  .autoResizeTextarea_platformButton:not(:disabled):hover {
+    transform: none;
+  }
+
+  .autoResizeTextarea_platformCircle {
+    transition:
+      background-color 0.14s ease,
+      border-color 0.14s ease,
+      box-shadow 0.14s ease;
+  }
+
+  .autoResizeTextarea_submitButton {
+    right: 9px;
+    bottom: 9px;
+
+    width: 36px;
+    height: 36px;
+
+    transition:
+      opacity 0.14s ease,
+      background-color 0.14s ease;
+  }
+
+  .autoResizeTextarea_submitButton:not(:disabled):hover {
+    transform: none;
+  }
+
+  .autoResizeTextarea_submitIcon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .autoResizeTextarea_loadingOverlay {
+    background-color: rgba(255, 255, 255, 0.72);
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .autoResizeTextarea_loadingText {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 560px) {
+  .autoResizeTextarea_container {
+    width: min(420px, 92vw);
+    min-height: 54px;
+    padding: 8px 50px 8px 15px;
+    border-radius: 27px;
+  }
+
+  .autoResizeTextarea_containerExpanded {
+    height: 140px;
+    min-height: 140px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 28px;
+  }
+
+  .autoResizeTextarea_containerResultMode {
+    height: 164px;
+    min-height: 164px;
+    padding: 15px 52px 15px 16px;
+  }
+
+  .autoResizeTextarea_containerExpanded .autoResizeTextarea_inputArea,
+  .autoResizeTextarea_containerResultMode .autoResizeTextarea_inputArea {
+    padding-bottom: 42px;
+  }
+
+  .autoResizeTextarea_input {
+    font-size: 14.5px;
+    line-height: 1.52;
+  }
+
+  .autoResizeTextarea_platformRow {
+    left: 15px;
+    right: 52px;
+    bottom: 10px;
+  }
+
+  .autoResizeTextarea_platformButton {
+    height: 29px;
+    padding: 0 9px 0 7px;
+    gap: 5px;
+
+    font-size: 11.5px;
+  }
+
+  .autoResizeTextarea_platformCircle {
+    width: 10px;
+    height: 10px;
+    border-width: 1.2px;
+  }
+
+  .autoResizeTextarea_platformButtonSelected .autoResizeTextarea_platformCircle {
+    box-shadow: inset 0 0 0 2.3px rgba(255, 255, 255, 0.85);
+  }
+
+  .autoResizeTextarea_submitButton {
+    width: 34px;
+    height: 34px;
+  }
+
+  .autoResizeTextarea_submitIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .autoResizeTextarea_container {
+    width: 92vw;
+    min-height: 52px;
+    padding: 8px 48px 8px 14px;
+    border-radius: 26px;
+  }
+
+  .autoResizeTextarea_containerExpanded {
+    height: 136px;
+    min-height: 136px;
+    border-radius: 27px;
+  }
+
+  .autoResizeTextarea_containerResultMode {
+    height: 156px;
+    min-height: 156px;
+    padding: 14px 50px 14px 15px;
+  }
+
+  .autoResizeTextarea_containerExpanded .autoResizeTextarea_inputArea,
+  .autoResizeTextarea_containerResultMode .autoResizeTextarea_inputArea {
+    padding-bottom: 40px;
+  }
+
+  .autoResizeTextarea_input {
+    font-size: 14px;
+  }
+
+  .autoResizeTextarea_platformList {
+    gap: 5px;
+  }
+
+  .autoResizeTextarea_platformRow {
+    left: 14px;
+    right: 50px;
+    bottom: 9px;
+  }
+
+  .autoResizeTextarea_platformButton {
+    height: 28px;
+    padding: 0 8px 0 7px;
+
+    font-size: 11px;
+  }
+
+  .autoResizeTextarea_submitButton {
+    right: 8px;
+    bottom: 8px;
+
+    width: 33px;
+    height: 33px;
+  }
+
+  .autoResizeTextarea_loadingText {
+    font-size: 13px;
+  }
+}
